@@ -19,6 +19,6 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  drivetrain.runForA(3000, L298N::FORWARD);
-  drivetrain.runForB(3000, L298N::FORWARD);
+  drivetrain.runA(L298N::FORWARD);
+  drivetrain.runB(L298N::FORWARD);
 }
