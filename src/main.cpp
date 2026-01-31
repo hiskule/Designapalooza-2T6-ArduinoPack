@@ -4,8 +4,6 @@
 
 L298NX2 drivetrain(dt::EN_A, dt::IN1_A, dt::IN2_A, dt::EN_B, dt::IN1_B, dt::IN2_B);
 
-
-
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
