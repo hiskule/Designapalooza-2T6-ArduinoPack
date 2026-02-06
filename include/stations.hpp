@@ -1,7 +1,7 @@
 #ifndef STATIONS_HPP
 #define STATIONS_HPP
 
-#include "line_following.hpp"
+#include "devices.hpp"
 
 enum class Station {
     NONE,
@@ -11,6 +11,7 @@ enum class Station {
     STATION_D
 };
 
-void runStationA(DDBot& drivetrain);
+void runStationA();
+void runStationB();
 
 #endif // STATIONS_HPP

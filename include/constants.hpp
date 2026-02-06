@@ -17,9 +17,16 @@ inline uint8_t S3_PIN = 7;
 inline uint8_t OUT_PIN = 8;
 }  // namespace color
 
+// Ultrasonic sensor pins
+namespace sonar {
+inline uint8_t TRIGGER_PIN = 11;
+inline uint8_t ECHO_PIN = 12;
+inline int MAX_DIST_CM = 200;
+}  // namespace sonar
+
 // Arm servo pins
 namespace servo {
 inline uint8_t SERVO_PIN = 6;
-}
+} // namespace servo
 
 #endif  // CONSTANTS_HPP

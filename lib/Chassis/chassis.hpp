@@ -24,8 +24,17 @@ class Chassis {
    * @brief Move the robot using tank controls without direction flipping
    * @param leftSpeed Speed for the left motor (-255 to 255)
    * @param rightSpeed Speed for the right motor (-255 to 255)
+   * @param time Duration to move in milliseconds
+   * @param stopAfter If true, stop the robot after moving for the specified
+   * time
    */
-  void moveTank(int leftSpeed, int rightSpeed);
+  void moveTank(int leftSpeed, int rightSpeed, int time = 0,
+                bool stopAfter = true);
+
+  /**
+   * @brief Stop all movement of the robot
+   */
+  void stop() { drivetrain_.stop(); }
 
   /**
    * @brief Read the current color detected by the color sensor
@@ -50,16 +59,23 @@ class Chassis {
    * @note This method must be called repeatedly with a delay in between
    */
   void followLine(ColorName lineColor, bool followLeft,
-                  std::pair<int, int> speeds = {100, 150},
+                  std::pair<int, int> speeds = {170, 255},
                   bool reverse = false);
+
+  std::queue<int> getDistanceReadings() const { return distanceReadings_; }
+  ColorName getBufferedColor() const { return bufferedColor; }
 
  protected:
   DDBot& drivetrain_;
   ColorSensor& colorSensor_;
   NewPing& ultrasonic_;
 
-  static const int maxDistCm = 30;
-  static const double ultrasonicAngle = 15.0 * (M_PI / 180.0);  // degrees
+  std::queue<int> distanceReadings_;
+
+  ColorName bufferedColor = ColorName::UNKNOWN;
+
+  const int maxDistCm = 30;
+  const double ultrasonicAngle = 20.0 * (M_PI / 180.0);  // deg converted to rad
 };
 
 #endif  // CHASSIS_HPP

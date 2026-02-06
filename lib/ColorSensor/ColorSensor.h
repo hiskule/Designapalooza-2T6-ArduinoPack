@@ -20,11 +20,11 @@ struct ColorRGB {
  * @brief Color classification categories
  */
 enum class ColorName {
+  BLUE,
   RED,
   GREEN,
-  BLUE,
-  WHITE,
   BLACK,
+  WHITE,
   UNKNOWN
 };
 
