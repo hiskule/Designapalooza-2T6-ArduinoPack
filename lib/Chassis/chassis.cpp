@@ -19,15 +19,15 @@ void Chassis::moveTank(int leftSpeed, int rightSpeed, int time,
   }
 }
 
-ColorName Chassis::readColor() {
+ColourName Chassis::readColour() {
   // Get readings
-  ColorRGB colorReading = colorSensor_.readNormalized();
-  ColorName colorName = colorSensor_.classify(colorReading);
+  ColourRGB colourReading = colourSensor_.readNormalized();
+  ColourName colourName = colourSensor_.classify(colourReading);
 
   // Push to queue
-  bufferedColor = colorName;
+  bufferedColour = colourName;
 
-  return colorName;
+  return colourName;
 }
 
 int Chassis::readDistance() {
@@ -48,12 +48,12 @@ int Chassis::readDistance() {
   return static_cast<int>(distance);
 }
 
-void Chassis::followLine(ColorName lineColor, bool followLeft,
+void Chassis::followLine(ColourName lineColour, bool followLeft,
                          std::pair<int, int> speeds, bool reverse) {
   auto [inSpeed, outSpeed] = speeds;
   int dir = reverse ? -1 : 1;
 
-  bool onLine = (readColor() == lineColor);
+  bool onLine = (readColour() == lineColour);
 
   // If following left side move left if on the line, right if off the line
   // Vice-versa for following right
