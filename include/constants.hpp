@@ -6,8 +6,8 @@
 
 // Drivetrain motor pins
 namespace drive {
-inline uint8_t DIRECTION_PINS[4] = {4, 5, 2, 3};
-inline uint8_t SPEED_PINS[2] = {10, 9};
+inline uint8_t DIRECTION_PINS[4] = {2, 3, 4, 7};
+inline uint8_t SPEED_PINS[2] = {9, 10};
 }  // namespace drive
 
 // Color sensor pins

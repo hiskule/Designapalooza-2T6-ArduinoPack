@@ -14,10 +14,10 @@ void setup() {
   chassis.stop();
   Serial.println("Initialization complete");
 
-  drivetrain.forward(255);
+  //drivetrain.forward(255);
   delay(1000);
   chassis.stop();
-  // chassis.moveTank(255, 255, 1000);
+  chassis.moveTank(255, 255, 5000);
   Serial.println("Done");
 
 }
