@@ -3,6 +3,8 @@
 #include <Arduino.h>
 #include <cstdint>
 
+// Define your pins here, if they are different from defaulted pins.
+
 // Drivetrain motor pins
 namespace drive {
 inline uint8_t DIRECTION_PINS[4] = {2, 3, 4, 7};
@@ -12,7 +14,7 @@ inline uint8_t SPEED_PINS[2] = {9, 10};
 // Color sensor pins
 namespace color {
 inline uint8_t S2_PIN = A5;
-inline uint8_t S3_PIN = 7;
+inline uint8_t S3_PIN = 5;
 inline uint8_t OUT_PIN = 8;
 }  // namespace color
 

@@ -1,7 +1,21 @@
 #include "chassis.hpp"
 
+/*
+
+moveTank(): Main movement control: Forward/Backward/Turning for time (T)
+
+readColour(): Reads and returns colour from TCS230 Colour Sensor
+
+maxdistance(): Reads distance of nearest obstacle from HCSR04 UltraSonic Sensor
+
+followLine(): Line-following program (May not be provided to students)
+
+*/
+
 void Chassis::moveTank(int leftSpeed, int rightSpeed, int time,
                        bool stopAfter) {
+
+  // Set movement direction - converting speed to DDBOT commands
   if (leftSpeed >= 0 && rightSpeed >= 0) {
     drivetrain_.forward(leftSpeed, rightSpeed);
   } else if (leftSpeed < 0 && rightSpeed < 0) {
@@ -12,8 +26,8 @@ void Chassis::moveTank(int leftSpeed, int rightSpeed, int time,
     drivetrain_.left(-leftSpeed, rightSpeed);
   }
 
+  // Stop after certain amount of time
   delay(time);
-
   if (stopAfter && time > 0) {
     drivetrain_.stop();
   }
