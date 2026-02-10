@@ -1,3 +1,5 @@
+#ifndef IR_SENSOR_HPP
+#define IR_SENSOR_HPP
 #include <Arduino.h>
 
 class InfraredSensor {
@@ -11,3 +13,4 @@ class InfraredSensor {
  protected:
   uint8_t _pin;
 };
+#endif // IR_SENSOR_HPP
