@@ -17,36 +17,18 @@ void Chassis::moveTank(int leftSpeed, int rightSpeed, int time,
 
   // Set movement direction - converting speed to DDBOT commands
   if (leftSpeed >= 0 && rightSpeed >= 0) {
-    drivetrain_.forward(leftSpeed, rightSpeed);
+    this->forward(leftSpeed, rightSpeed);
   } else if (leftSpeed < 0 && rightSpeed < 0) {
-    drivetrain_.backward(-leftSpeed, -rightSpeed);
+    this->backward(-leftSpeed, -rightSpeed);
   } else if (leftSpeed >= 0 && rightSpeed < 0) {
-    drivetrain_.right(leftSpeed, -rightSpeed);
+    this->right(leftSpeed, -rightSpeed);
   } else {
-    drivetrain_.left(-leftSpeed, rightSpeed);
+    this->left(-leftSpeed, rightSpeed);
   }
 
   // Stop after certain amount of time
   delay(time);
   if (stopAfter && time > 0) {
-    drivetrain_.stop();
+    this->stop();
   }
-}
-
-int Chassis::readDistance() {
-  unsigned long distance =
-      ultrasonic_.ping_cm(maxDistCm) * cos(ultrasonicAngle);
-
-  // Return max distance if object out of range
-  if (distance == 0) {
-    distance = maxDistCm;
-  }
-
-  // // Push to queue
-  // distanceReadings_.push(static_cast<int>(distance));
-  // if (distanceReadings_.size() > 5) {
-  //   distanceReadings_.pop();
-  // }
-
-  return static_cast<int>(distance);
 }
